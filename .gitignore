@@ -1,0 +1,47 @@
+# Arquivos temporários e logs do Robot Framework
+*.log
+*.html
+*.xml
+output.xml
+report.html
+log.html
+
+# Diretórios de saída padrão do Robot Framework
+output/
+results/
+
+# Arquivos de ambiente virtual (Python)
+venv/
+*.venv/
+env/
+*.env/
+
+# Arquivos de configuração do Python
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+
+# Arquivos do Selenium (drivers, se baixados localmente)
+chromedriver
+geckodriver
+*.exe
+
+# Arquivos do sistema operacional
+.DS_Store  # macOS
+Thumbs.db  # Windows
+
+# Arquivos de IDE ou editores
+*.idea/  # IntelliJ/PyCharm
+*.vscode/  # Visual Studio Code
+*.sublime-*  # Sublime Text
+
+# Arquivos sensíveis
+*.secret
+*.key
+*.pem
+
+# Outros arquivos temporários
+*.bak
+*.tmp
