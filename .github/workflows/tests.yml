@@ -7,6 +7,8 @@ on:
   pull_request:
     branches:
       - main
+  schedule:
+    - cron: '0 17 * * *'  # Roda às 17:00 UTC (14:00 em UTC-3)
 
 jobs:
   test:
