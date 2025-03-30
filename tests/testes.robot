@@ -13,7 +13,11 @@ ${LINK_TEXT_2025}    1º Semestre de 2025
 
 *** Keywords ***
 Abrir Navegador
-    Open Browser    ${URL}    ${BROWSER}
+    ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    Call Method    ${options}    add_argument    --headless  # Roda em modo headless no CI
+    Call Method    ${options}    add_argument    --no-sandbox
+    Call Method    ${options}    add_argument    --disable-dev-shm-usage
+    Open Browser    ${URL}    ${BROWSER}    options=${options}
     Maximize Browser Window
 
 Fechar Navegador
@@ -31,6 +35,6 @@ Validar Texto do Link - 2023
     Page Should Contain Link    ${LINK_TEXT_2023}    msg=O texto do link de 2023 não foi encontrado!
 
 Validar Texto do Link - 2025
-    ${pagina_fonte}    Get Source    # Pega o código-fonte da página
-    Should Contain    ${pagina_fonte}    ${LINK_TEXT_2025}    msg=O texto '1º Semestre de 2025' ainda não foi encontrado no site!
+    ${pagina_fonte}    Get Source
+    Run Keyword And Continue On Failure    Should Contain    ${pagina_fonte}    ${LINK_TEXT_2025}    msg=O texto '1º Semestre de 2025' ainda não foi encontrado no site!
     Log To Console    Verificando se o edital de 2025 foi lançado... (Texto não encontrado ainda)
