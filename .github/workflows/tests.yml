@@ -33,7 +33,7 @@ jobs:
 
       - name: Run Robot Framework Tests
         run: |
-          robot --outputdir results testes.robot
+          robot --outputdir results tests/testes.robot
 
       - name: Upload test results
         if: always()
